@@ -23,22 +23,24 @@ export const Layout = ({ children }) => {
 
   return (
     <div>
-      <div className="bg-gray-500">
+      <div className="bg-gray-500 ">
         <div className="text-center py-5 text-white font-bold">
           Online Store
         </div>
 
-        <div className="flex flex-row bg-white  ">
-          <section className="bg-gray-400 p-5 ">
+        <div className="  bg-white flex flex-row ">
+          <section className="bg-gray-400 p-5 gap-5 w-[20%]   flex flex-col underline font-bold  ">
             {categories.map((category) => (
-              <Link to={`/categories/${category.id}`}>
-                <li>{category.title}</li>
-              </Link>
+              <ul>
+                <Link to={`/categories/${category.id}`}>
+                  <li key={category.id}>{category.title}</li>
+                </Link>
+              </ul>
             ))}
           </section>
-          <section className=" p-5">{children}</section>
+          <section className=" w-full p-5">{children}</section>
         </div>
-        <footer className="text-center bg-gray-500  text-white">
+        <footer className="  text-center bg-gray-500  text-white">
           <Link to={"/"}>Home</Link>|<Link to={"/cart"}>Cart</Link>
         </footer>
       </div>

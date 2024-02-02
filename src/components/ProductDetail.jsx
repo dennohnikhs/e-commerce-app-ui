@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 import { getProductById } from "../utils/fetcher";
 import { Layout } from "./Layout";
 
-export const ProductDetail = () => {
+export const CategoryProductDetails = () => {
   const [product, setProduct] = useState({});
   const params = useParams();
   useEffect(() => {
@@ -49,8 +49,8 @@ export const ProductDetail = () => {
               </div>
             )}
           </aside>
-          <aside className="category-product-finance">
-            <div className="category-product-info-stock">
+          <aside>
+            <div className="flex flex-col bg-gray-300 p-2 rounded-md font-semibold">
               <label>
                 Stock Level:
                 <span className="text-green-500 px-2">{product.stock}</span>
