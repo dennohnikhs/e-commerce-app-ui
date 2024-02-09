@@ -167,7 +167,7 @@ footer a {
   font-weight: bold;
 }
 .category-product-action button:last-child {
-  background-color: darkgray;
+  /* background-color: darkgray; */
 }
 
 .category-product-info-features {

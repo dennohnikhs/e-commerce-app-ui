@@ -48,11 +48,20 @@ const ProductCard = ({ product }) => {
           <label>Stock Level: {stock}</label>
           <label>FREE DELIVERY</label>
         </div>
-        <div className="category-product-action">
-          <button onClick={() => navigate(`/products/${id}`)}>
+        <div className="category-product-action ">
+          <button
+            className="hover:bg-gray-600"
+            onClick={() => navigate(`/products/${id}`)}
+          >
             View Product
           </button>
-          <button onClick={() => addProduct({ id, title, price })}>
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              addProduct({ id, title, price });
+            }}
+            className="hover:bg-gray-600"
+          >
             Add to Cart
           </button>
         </div>

@@ -4,7 +4,10 @@ import { CartReducer } from "./CartReducer";
 export const CartContext = createContext();
 const initialState = { cartItems: [] };
 const CartContextProvider = ({ children }) => {
+  //The useReducer Hook returns the current state and a dispatch method.
+
   const [state, dispatch] = useReducer(CartReducer, initialState);
+
   const addProduct = (payload) => {
     dispatch({
       type: "ADD",
@@ -16,33 +19,37 @@ const CartContextProvider = ({ children }) => {
       type: "REMOVE",
       payload,
     });
+    return state.cartItems;
   };
-  const increaseProduct = (payload) => {
+  const increaseQuantity = (payload) => {
     dispatch({
-      type: "INCQTY",
+      type: "INCREMENT_QUANTITY",
       payload,
     });
+    return state.cartItems;
   };
-  const decreaseProduct = (payload) => {
+  const decreaseQuantity = (payload) => {
     dispatch({
-      type: "DECQTY",
+      type: "DECREMENT_QUANTITY",
       payload,
     });
+    return state.cartItems;
   };
   const clearCart = () => {
     dispatch({
       type: "CLEAR",
       payload: undefined,
     });
+    return state.cartItems;
   };
   const getItems = () => {
-   return state.cartItems
+    return state.cartItems;
   };
   const contextValues = {
     addProduct,
     removeProduct,
-    increaseProduct,
-    decreaseProduct,
+    increaseQuantity,
+    decreaseQuantity,
     clearCart,
     getItems,
     ...state,

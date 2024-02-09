@@ -4,6 +4,7 @@ import { Cart } from "./components/Cart.jsx";
 import { CheckOut } from "./components/CheckOut.jsx";
 import { CategoryProducts } from "./components/CategoryProducts.jsx";
 import { Home } from "./components/Home.jsx";
+import { OrderConfirmation } from "./components/ConfirmOrder.jsx";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
           />
           <Route path="/cart" element={<Cart />} />
           <Route path="/checkout" element={<CheckOut />} />
+          <Route path="/confirm-order" element={<OrderConfirmation />} />
           <Route
             path="/categories/:categoryId"
             element={<CategoryProducts />}
