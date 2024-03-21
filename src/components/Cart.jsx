@@ -45,6 +45,7 @@ export const Cart = () => {
                 quantity:
                 <div className="cursor-pointer flex justify-between bg-white w-[20%] shadow-lg rounded-sm text-center p-2">
                   <div
+                    className="p-1 bg-gray-400 rounded-full"
                     onClick={(e) =>
                       setCartItems(decreaseQuantity({ id: cartItem.id }))
                     }
@@ -53,6 +54,7 @@ export const Cart = () => {
                   </div>
                   <div>{cartItem.quantity}</div>
                   <div
+                    className="p-1 bg-gray-400 rounded-full"
                     onClick={(e) =>
                       setCartItems(increaseQuantity({ id: cartItem.id }))
                     }

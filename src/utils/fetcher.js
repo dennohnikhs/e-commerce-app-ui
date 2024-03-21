@@ -28,3 +28,7 @@ export const getProductById = async (id) => {
   console.log("returned data", data);
   return data;
 };
+export const fetchProductsByQuery = async (query) => {
+  const data = await fetcher("/products?q=" + query);
+  return data;
+};

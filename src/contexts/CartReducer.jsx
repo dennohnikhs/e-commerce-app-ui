@@ -2,6 +2,14 @@
 
 export const CartReducer = (state, action) => {
   debugger;
+  //store the cartItems in local storage so whenever the user refresh the page,the cartItems persists in the cart
+  //we do not wish to use session storage because the cart items will only be available until the browser is closed
+  const Storage = (cartItems) => {
+    localStorage.setItem(
+      "cart",
+      JSON.stringify(cartItems.length > 0 ? cartItems : [])
+    );
+  };
   let index = -1;
   if (action.payload) {
     index = state.cartItems.findIndex(
@@ -21,7 +29,6 @@ export const CartReducer = (state, action) => {
       // Only increment the quantity if the item is in the cart
       if (index !== -1) {
         newItems[index].quantity++;
-
         // state.cartItems[index].quantity++;
       }
       break;
@@ -47,5 +54,6 @@ export const CartReducer = (state, action) => {
     default:
   }
   state.cartItems = newItems;
+  Storage(newItems);
   return state;
 };
